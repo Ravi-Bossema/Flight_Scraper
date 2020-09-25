@@ -24,16 +24,14 @@ BelR = {
     ]
 }
 
-cheapest = [9999, None]
-
 driver = webdriver.Chrome()
 
 
 class Flight:
-    def __init__(self, dict, cheapest):
+    def __init__(self, dict):
         self.toDates = dict['toDates']
         self.fromDates = dict['fromDates']
-        self.cheapest = cheapest
+        self.cheapest = [99999, None]
         self.URL1 = dict['url1']
         self.middleBit = dict['middleBit']
         self.URL2 = dict['url2']
@@ -112,7 +110,7 @@ class Flight:
         print(self.to, self.cheapest)
 
 
-bel = Flight(BelR, cheapest)
+bel = Flight(BelR)
 bel.scrape()
 
 
